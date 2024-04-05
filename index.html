@@ -1,11 +1,22 @@
+<!-- html index page for counter project -->
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <title>Empty Page</title>
-
-    <script>
-      console.log("Hello, World!");
-    </script>
+    <!-- this sets up the basic structure of the html page and links to the stylesheet -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, inital-scale=1" />
+    <title>Counter Project</title>
+    <link rel="stylesheet" href="style.css" />
   </head>
-  <body></body>
+  <body>
+    <!-- this sets up the basic structure of the buttons being used and organizes them for convienient styling-->
+    <label id="countLabel">0</label><br />
+    <div id="btnContainer">
+      <button id="decreaseBtn" class="buttons">decrease</button>
+      <button id="resetBtn" class="buttons">reset</button>
+      <button id="increaseBtn" class="buttons">increase</button>
+    </div>
+    <!-- this links the html to the javascript index -->
+    <script src="index.js"></script>
+  </body>
 </html>

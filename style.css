@@ -1,0 +1,29 @@
+/* this is the stylesheet for the counter project */
+/*  */
+/* this is the basic design of the counter buttons */
+#countLabel {
+  display: block;
+  text-align: center;
+  font-size: 10em;
+  font-family: Helvetica;
+}
+/* this aligns the buttons to the center of the page */
+#btnContainer {
+  text-align: center;
+}
+
+/* this makes the buttons look pretty and the cursor reactive */
+.buttons {
+  padding: 10px 20px;
+  font-size: 1.5em;
+  color: white;
+  background-color: blue;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.25s;
+}
+
+/* this makes the buttons change color when they are clicked */
+.buttons:hover {
+  background-color: purple;
+}
