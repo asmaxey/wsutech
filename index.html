@@ -1,22 +1,35 @@
-<!-- html index page for counter project -->
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <!-- this sets up the basic structure of the html page and links to the stylesheet -->
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, inital-scale=1" />
-    <title>Counter Project</title>
-    <link rel="stylesheet" href="style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <!-- this sets up the basic structure of the buttons being used and organizes them for convienient styling-->
-    <label id="countLabel">0</label><br />
-    <div id="btnContainer">
-      <button id="decreaseBtn" class="buttons">decrease</button>
-      <button id="resetBtn" class="buttons">reset</button>
-      <button id="increaseBtn" class="buttons">increase</button>
+    <div id="calulator">
+      <input id="display" readonly />
+      <div id="keys">
+        <button onclick="appendToDisplay('+')" class="operator-btn">+</button>
+        <button onclick="appendToDisplay('7')">7</button>
+        <button onclick="appendToDisplay('8')">8</button>
+        <button onclick="appendToDisplay('9')">9</button>
+        <button onclick="appendToDisplay('-')" class="operator-btn">-</button>
+        <button onclick="appendToDisplay('4')">4</button>
+        <button onclick="appendToDisplay('5')">5</button>
+        <button onclick="appendToDisplay('6')">6</button>
+        <button onclick="appendToDisplay('*')" class="operator-btn">*</button>
+        <button onclick="appendToDisplay('1')">1</button>
+        <button onclick="appendToDisplay('2')">2</button>
+        <button onclick="appendToDisplay('3')">3</button>
+        <button onclick="appendToDisplay('/')" class="operator-btn">/</button>
+        <button onclick="appendToDisplay('0')">0</button>
+        <button onclick="appendToDisplay('.')">.</button>
+        <button onclick="calculate('=')">=</button>
+        <button onclick="clearDisplay()" class="operator-btn">C</button>
+      </div>
     </div>
-    <!-- this links the html to the javascript index -->
+
     <script src="index.js"></script>
   </body>
 </html>

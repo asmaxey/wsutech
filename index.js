@@ -1,22 +1,19 @@
-// this is the javascript index for the counter project
+// CALCULATOR PROGRAM
 
-// this designates the buttons as variables and defines the starting value
-const decreaseBtn = document.getElementById("decreaseBtn");
-const resetBtn = document.getElementById("resetBtn");
-const increaseBtn = document.getElementById("increaseBtn");
-const countLabel = document.getElementById("countLabel");
-let count = 0;
+const display = document.getElementById("display");
 
-// this tells the program what to do with the count total when a button is clicked
-increaseBtn.onclick = function () {
-  count++;
-  countLabel.textContent = count;
-};
-decreaseBtn.onclick = function () {
-  count--;
-  countLabel.textContent = count;
-};
-resetBtn.onclick = function () {
-  count = 0;
-  countLabel.textContent = count;
-};
+function appendToDisplay(input) {
+  display.value += input;
+}
+
+function clearDisplay() {
+  display.value = "";
+}
+
+function calculate() {
+  try {
+    display.value = eval(display.value);
+  } catch (error) {
+    display.value = "Error";
+  }
+}
