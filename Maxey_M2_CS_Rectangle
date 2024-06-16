@@ -1,0 +1,58 @@
+using System;
+
+
+// Write a program to calculate the area of a rectangle and print the answer to the console. 
+// You should prompt the user for the dimensions. 
+//
+// Add a print line to prompt the user for the length of the rectangle
+// Define a variable to handle the user's response
+// Repeat the previous two steps to ask for and store the rectangles width
+// Use the length and width values to calculate the rectangle's area. 
+// Print a statement using concatenation to communicate to the user what the area of their rectangle is
+// Run the program to verify your code. 
+//
+// You will need to upload your code to github and provide the link to your program. 
+
+namespace rectangle
+{
+    class Program
+    {
+        static void Main(string[]args)
+        {
+            double height, width, area, perimeter;
+            height = GetSize("Height");
+            width = GetSize("Width");
+
+            area = ComputeArea(height, width);
+            perimeter = ComputePerimeter(height, width);
+            DisplayResults(height,width,area,perimeter);
+        }
+        public static double GetSize(string whichOne)
+        {
+            string InValue;
+            double side;
+            Console.Write("Enter the {0}: ", whichOne); 
+            InValue = Console.ReadLine();
+            side = double.Parse(InValue);
+            return side;
+        }
+        public static double ComputeArea(double height, double width)
+        {
+            return height * width; 
+        }
+        public static double ComputePerimeter(double height, double width)
+        {
+            return 2 * height + 2 * width;
+        }
+        public static void DisplayResults(double height, double width,double area,double perimeter)
+        {
+            Console.Clear();
+            Console.WriteLine("\nSummary of Rectangle Measurements\n");
+            Console.WriteLine("{0, -15}{1,5:f1}","Height: ", height);
+            Console.WriteLine("{0, -15}{1,5:f1}","Width: ", width);
+            Console.WriteLine("{0, -15}{1,5:f1}","Area: ", area);
+            Console.WriteLine("{0, -15}{1,5:f1}","Perimeter: ", perimeter);
+        }
+
+    }
+}
