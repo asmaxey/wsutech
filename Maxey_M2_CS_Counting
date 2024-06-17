@@ -1,0 +1,100 @@
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// You will write a program to count the number of times each character occurs in a string and have the 
+//results print to the console. 
+
+// Loop through the string one character at a time
+// Store and/or update the count for a given character using an appropriate data structure
+// Loop through the data structure to print the results (one character and its count per line)
+// The program should prompt the user to enter the string in the command line
+// Make the character counts case-insensitive 
+// Exclude non-alphabetic characters 
+
+// Notes:
+
+// Which type of data structure should you use to store character counts? 
+
+// You will need initialize the counts for the characters. 
+
+// If you are needing help creating a new class, look at your Hello Methods program. 
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// using System;
+
+// namespace Counting
+// {
+//     public class CountOccuranceOfChar
+//     {
+//         //string : Engineer
+//         //E : 3 times
+//         //N : 2 times
+//         //G : 1 time
+//         //I : 1 time
+//         //R : 1 time
+
+//     public static void CountOccurance(string name)
+//     {
+//         string newName = name.ToUpper();
+//         Dictionary<char, int> dict = new Dictionary<char, int>();
+//         foreach(char c in newName)
+//         {
+//             dict.TryGetValue(c, out int value);
+//             dict[c] = value + 1;
+//         }
+//         foreach(var x in dict)
+//         {
+//             Console.WriteLine($"\nThe Occurance of Character {x.Key} is {x.Value}\n");
+//         }
+//         Console.ReadLine();
+//     }
+//         static void Main(string[]args)
+//         {
+//             string name = "Engineer";
+//             CountOccurance(name);
+
+            
+//         }
+//     }
+// }
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+using System;
+using System.Collections.Generic;
+
+class Program
+{
+    static void Main()
+    {
+        Console.WriteLine("Please enter a string: ");
+        string input = Console.ReadLine();
+
+        // Dictionary to store character counts
+        Dictionary<char, int> charCounts = new Dictionary<char, int>();
+
+        // Loop through the string one character at a time
+        foreach (char c in input)
+        {
+            // Convert character to lowercase
+            char lowerChar = char.ToLower(c);
+
+            // Check if character is alphabetic
+            if (char.IsLetter(lowerChar))
+            {
+                // Update the count for the character
+                if (charCounts.ContainsKey(lowerChar))
+                {
+                    charCounts[lowerChar]++;
+                }
+                else
+                {
+                    charCounts[lowerChar] = 1;
+                }
+            }
+        }
+
+        // Loop through the data structure to print the results
+        foreach (var pair in charCounts)
+        {
+            Console.WriteLine($"{pair.Key}: {pair.Value}");
+        }
+    }
+}
