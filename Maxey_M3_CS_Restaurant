@@ -1,0 +1,82 @@
+using System;
+using System.Collections.Generic;
+
+public class MenuItem
+{
+    public string Name { get; set; }
+    public decimal Price { get; set; }
+    public string Description { get; set; }
+    public string Category { get; set; }
+    public bool IsNew { get; set; }
+
+    public MenuItem (string name, decimal price, string description, string category, bool isNew)
+    {
+        Name = name;
+        Price = price;
+        Description = description;
+        Category = category;
+        IsNew = isNew;
+    }
+}
+
+public class Menu
+{
+    private List<MenuItem> items;
+    private DateTime lastUpdated;
+
+    public List<MenuItem> Items
+    {
+        get {return items; }
+    }
+    public DateTime LastUpdated
+    {
+        get {return lastUpdated; }
+    }
+    public Menu()
+    {
+        items = new List<MenuItem>();
+        lastUpdated = DateTime.Now;
+    }
+    public void AddMenuItem(MenuItem item)
+    {
+        items.Add(item);
+        lastUpdated = DateTime.Now;
+    }
+    public void RemoveMenuItem(MenuItem item)
+    {
+        items.Remove(item);
+        lastUpdated = DateTime.Now;
+    }
+    public void DisplayMenu()
+    {
+        Console.WriteLine("Menu (Last Updated: " + lastUpdated + "):\n");
+
+        foreach (var item in items)
+        {
+            Console.WriteLine("Name: " + item.Name);
+            Console.WriteLine("Price: $" + item.Price);
+            Console.WriteLine("Description: " + item.Description);
+            Console.WriteLine("Category: " + item.Category);
+            Console.WriteLine("New Item: " + item.IsNew);
+            Console.WriteLine();
+        }
+    }
+}
+
+class Program
+{
+    static void Main()
+    {
+        Menu menu = new Menu();
+
+        MenuItem item1 = new MenuItem("Pineapple Boat Tuna Salad", 17.99m, "Fresh tuna salad served in a scored pineapple shell with cottage cheese and iceburg lettuce", "Appetizer", true);
+        MenuItem item2 = new MenuItem("Spaghetti Wagyu", 212.99m, "Classic homemade spaghetti noodles with authentic cubed wagyu beef sauce and fresh mozzarella crumble garlic toast", "Main Course", false);
+        MenuItem item3 = new MenuItem("Mandarin Chocolate Lava Cake", 16.49m, "Warm dark chocolate cake filled with a gooey milk chocolate center and topped with mandarin infused marshmallow whip", "Dessert", true);
+
+        menu.AddMenuItem(item1);
+        menu.AddMenuItem(item2);
+        menu.AddMenuItem(item3);
+
+        menu.DisplayMenu();
+    }
+}
